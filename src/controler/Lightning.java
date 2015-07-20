@@ -1,16 +1,16 @@
 package controler;
 
-import service.impl.Light;
+import service.impl.LightServiceImpl;
 import manager.HouseManager;
 
 /**
  * Created by Евгений on 20.07.2015.
  */
 public class Lightning extends Thread {
-    Light light;
+    LightServiceImpl light;
 
 
-    public Lightning(Light light) {
+    public Lightning(LightServiceImpl light) {
         this.light = light;
         this.start();
     }

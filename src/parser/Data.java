@@ -1,15 +1,15 @@
 package parser;
 
-import service.impl.Temperature;
-import service.impl.Time;
+import service.impl.TemperatureServiceImpl;
+import service.impl.TimeServiceImpl;
 import inhabitant.Inhabitant;
 
 public class Data {               //хранение всех полученных и XML-файла данных
     private static Inhabitant inhabitant = new Inhabitant();
-    private static Time time = new Time();
-    private static Temperature temperature = new Temperature();
+    private static TimeServiceImpl time = new TimeServiceImpl();
+    private static TemperatureServiceImpl temperature = new TemperatureServiceImpl();
 
-    public Time getTime() {
+    public TimeServiceImpl getTime() {
         return time;
     }
 
@@ -17,7 +17,7 @@ public class Data {               //хранение всех полученны
         return inhabitant;
     }
 
-    public Temperature getTemperature() {
+    public TemperatureServiceImpl getTemperature() {
         return temperature;
     }
 }

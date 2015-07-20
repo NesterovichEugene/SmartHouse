@@ -4,9 +4,9 @@ import controler.Clock;
 import controler.Conditioner;
 import controler.Heat;
 import controler.Lightning;
-import service.impl.Light;
-import service.impl.Temperature;
-import service.impl.Time;
+import service.impl.LightServiceImpl;
+import service.impl.TemperatureServiceImpl;
+import service.impl.TimeServiceImpl;
 import inhabitant.Inhabitant;
 import inhabitant.InhabitantLife;
 import parser.Data;
@@ -14,10 +14,10 @@ import parser.SAXParse;
 
 public class HouseManager implements Runnable {   //запускает все потоки
     private Data data = SAXParse.getResult();
-    private Time currentTime = data.getTime();
+    private TimeServiceImpl currentTime = data.getTime();
     private Inhabitant inhabitant = data.getInhabitant();
-    private Temperature temperature = data.getTemperature();
-    private Light light = new Light();
+    private TemperatureServiceImpl temperature = data.getTemperature();
+    private LightServiceImpl light = new LightServiceImpl();
 
     private static Clock time;
     private static InhabitantLife life;
