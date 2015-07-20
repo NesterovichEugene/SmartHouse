@@ -3,6 +3,6 @@ package service;
 /**
  * Created by Евгений on 20.07.2015.
  */
-public interface Increaseble {
+public interface IncreasebleService {
     void increase();
 }

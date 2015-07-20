@@ -1,16 +1,16 @@
 package controler;
 
-import service.impl.Temperature;
-import service.Switchable;
+import service.impl.TemperatureServiceImpl;
+import service.SwitchableService;
 
 /**
  * Created by Евгений on 20.07.2015.
  */
-public class Conditioner extends Thread implements Switchable {
-    Temperature temperature;
+public class Conditioner extends Thread implements SwitchableService {
+    TemperatureServiceImpl temperature;
     static boolean isOn = false;
 
-    public Conditioner(Temperature temperature) {
+    public Conditioner(TemperatureServiceImpl temperature) {
         this.temperature = temperature;
         this.start();
     }
