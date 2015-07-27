@@ -4,9 +4,9 @@ package manager;
 /**
  * Created by Евгений on 20.07.2015.
  */
-public class Messenger extends Thread {
+public class MessageManager extends Thread {
 
-    public Messenger() {
+    public MessageManager() {
         this.start();
     }
 

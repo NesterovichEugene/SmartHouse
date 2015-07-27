@@ -2,10 +2,10 @@ package controler;
 
 import service.impl.TimeServiceImpl;
 
-public class Clock extends Thread {
+public class ClockControler extends Thread {
     TimeServiceImpl time;
 
-    public Clock(TimeServiceImpl time) {
+    public ClockControler(TimeServiceImpl time) {
         this.time = time;
         this.start();
     }

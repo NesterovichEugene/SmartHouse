@@ -3,11 +3,11 @@ package controler;
 import service.impl.TemperatureServiceImpl;
 import service.SwitchableService;
 
-public class Heat extends Thread implements SwitchableService {
+public class HeatControler extends Thread implements SwitchableService {
     TemperatureServiceImpl temperature;
     static boolean isOn = false;
 
-    public Heat(TemperatureServiceImpl temperature) {
+    public HeatControler(TemperatureServiceImpl temperature) {
         this.temperature = temperature;
         this.start();
     }
@@ -26,7 +26,7 @@ public class Heat extends Thread implements SwitchableService {
     public void run() {      //работа обогрева
         try {
             while (true) {
-                if (temperature.getTemperature() < temperature.getMaxTemperature() && !Conditioner.isOn) {
+                if (temperature.getTemperature() < temperature.getMaxTemperature() && !ConditionerControler.isOn) {
                     temperature.increase();
                     turnOn();
                     //System.out.println("Включено отопление. " + temperature.toString());

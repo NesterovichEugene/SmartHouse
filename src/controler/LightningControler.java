@@ -6,11 +6,11 @@ import manager.HouseManager;
 /**
  * Created by Евгений on 20.07.2015.
  */
-public class Lightning extends Thread {
+public class LightningControler extends Thread {
     LightServiceImpl light;
 
 
-    public Lightning(LightServiceImpl light) {
+    public LightningControler(LightServiceImpl light) {
         this.light = light;
         this.start();
     }

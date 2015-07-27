@@ -1,9 +1,9 @@
 package manager;
 
-import controler.Clock;
-import controler.Conditioner;
-import controler.Heat;
-import controler.Lightning;
+import controler.ClockControler;
+import controler.ConditionerControler;
+import controler.HeatControler;
+import controler.LightningControler;
 import service.impl.LightServiceImpl;
 import service.impl.TemperatureServiceImpl;
 import service.impl.TimeServiceImpl;
@@ -19,33 +19,33 @@ public class HouseManager implements Runnable {   //запускает все п
     private TemperatureServiceImpl temperature = data.getTemperature();
     private LightServiceImpl light = new LightServiceImpl();
 
-    private static Clock time;
+    private static ClockControler time;
     private static InhabitantLife life;
-    private static Heat heat;
-    private static Conditioner conditioner;
-    private static Lightning lightning;
-    private static Messenger messenger;
+    private static HeatControler heat;
+    private static ConditionerControler conditioner;
+    private static LightningControler lightning;
+    private static MessageManager messenger;
 
     @Override
     public void run() {
-        time = new Clock(currentTime); //запуск хода времени
+        time = new ClockControler(currentTime); //запуск хода времени
 
         life = new InhabitantLife(inhabitant);  //запуск потока прихода\ухода жителя из дома
 
-        heat = new Heat(temperature); //запуск работы отопления
+        heat = new HeatControler(temperature); //запуск работы отопления
 
-        conditioner = new Conditioner(temperature); //запуск кондиционера
+        conditioner = new ConditionerControler(temperature); //запуск кондиционера
 
-        lightning = new Lightning(light);//запуск автоматического включения\выключения света
+        lightning = new LightningControler(light);//запуск автоматического включения\выключения света
 
-        messenger = new Messenger();//запуск вывода инфы о состоянии дома на экран
+        messenger = new MessageManager();//запуск вывода инфы о состоянии дома на экран
     }
 
     /**
      * getters
      */
 
-    public static Clock getTime() {
+    public static ClockControler getTime() {
         return time;
     }
 
@@ -53,15 +53,15 @@ public class HouseManager implements Runnable {   //запускает все п
         return life;
     }
 
-    public static Heat getHeat() {
+    public static HeatControler getHeat() {
         return heat;
     }
 
-    public static Conditioner getConditioner() {
+    public static ConditionerControler getConditioner() {
         return conditioner;
     }
 
-    public static Lightning getLightning() {
+    public static LightningControler getLightning() {
         return lightning;
     }
 
